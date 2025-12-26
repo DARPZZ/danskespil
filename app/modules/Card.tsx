@@ -1,9 +1,10 @@
 type CardType = {
   title: string;
   value: string;
+  onClick?: (value: string) => void; 
 };
 
-export default function Card({ title, value }: CardType) {
+export default function Card({ title, value, onClick }: CardType) {
   return (
     <div
       className="
@@ -19,16 +20,11 @@ export default function Card({ title, value }: CardType) {
         cursor-pointer
         overflow-hidden
       "
+      onClick={() => onClick && onClick(value)} 
     >
-      <div onClick={() => console.log()} className="relative z-10 flex flex-col items-start justify-between h-full">
-        <h2 className="text-base font-medium text-neutral-300">
-          {title}
-        </h2>
-
-        <p className="mt-2 text-3xl font-extrabold text-white tracking-tight">
-          {value}
-        </p>
-
+      <div className="relative z-10 flex flex-col items-start justify-between h-full">
+        <h2 className="text-base font-medium text-neutral-300">{title}</h2>
+        <p className="mt-2 text-3xl font-extrabold text-white tracking-tight">{value}</p>
         <div className="mt-4 h-1 w-16 bg-red-300 rounded-full shadow-[0_0_8px_rgba(139,92,246,0.7)] animate-pulse"></div>
       </div>
     </div>
