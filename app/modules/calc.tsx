@@ -3,9 +3,11 @@ type  MultiplierCardType = {
   oddsNumber:number
 }
 export default function MultiplierCard({oddsNumber}:MultiplierCardType) {
-  const [userNumber, setUserNumber] = useState<number>(0);
+  const [userNumber, setUserNumber] = useState<number | "">("");
 
-  const result = oddsNumber * userNumber;
+
+  const result = userNumber === "" ? "" : oddsNumber * userNumber;
+
 
   return (
     <div className="w-56 bg-neutral-900 rounded-xl shadow-lg p-4 text-white mx-auto mt-10">
@@ -21,10 +23,13 @@ export default function MultiplierCard({oddsNumber}:MultiplierCardType) {
         <input
           type="number"
           value={userNumber}
-          onChange={(e) => setUserNumber(Number(e.target.value))}
-          placeholder="0"
-          className="flex-1 p-2 w-32  rounded bg-neutral-800 text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+          onChange={(e) => {
+            const value = e.target.value;
+            setUserNumber(value === "" ? "" : Number(value));
+          }}
+          className="flex-1 p-2 w-32 rounded bg-neutral-800 text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
         />
+
       </div>
 
       <div className="mt-3 p-3 bg-purple-700 rounded text-center text-xl font-bold">
