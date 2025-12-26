@@ -10,7 +10,7 @@ export default function MultiplierCard({oddsNumber}:MultiplierCardType) {
 
 
   return (
-    <div className="w-56 bg-neutral-900 rounded-xl shadow-lg p-4 text-white mx-auto mt-10">
+    <div className="w-56 bg-neutral-900 sticky top-10 rounded-xl shadow-lg p-4 text-white h-72  mt-10">
       <h2 className="text-lg font-bold mb-3 text-center">Multiplier</h2>
 
       <div className="flex items-center justify-between mb-3">
@@ -33,7 +33,16 @@ export default function MultiplierCard({oddsNumber}:MultiplierCardType) {
       </div>
 
       <div className="mt-3 p-3 bg-purple-700 rounded text-center text-xl font-bold">
-        Gevinst: {result} KR.
+        <h1>
+          Gevinst:
+        </h1>
+        <h1>
+          {Number(result).toFixed(0)} KR.
+        </h1> 
+      </div>
+
+      <div className="flex flex-col h-24 justify-end items-center">
+        <h1 className="text-xl font-bold">Lavet af Rasmus</h1>
       </div>
     </div>
   );

@@ -21,13 +21,13 @@ function Home() {
       <h1 className="pt-4 lg:text-6xl font-bold flex justify-center text-center">
         Velkommen til kongens nytårs tale 2025 
       </h1>
-      <div className="block  lg:hidden mt-6">
+      <div className="block lg:hidden mt-6">
         <MultiplierCard oddsNumber={Number(selectedValue)} />
       </div>
 
       <div className="flex flex-col lg:flex-row pt-5 gap-6">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3 flex-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 ">
           {[...data]
             .sort((a, b) => Number(a.value) - Number(b.value))
             .map((item, index) => (
