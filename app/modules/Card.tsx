@@ -47,7 +47,6 @@ export default function Card({
         >
         {shouldLoad &&(
           <FireworkIcon width={26} height={26} animate={true}accentColor="#34D399" />
-
         )}
         </div>
         

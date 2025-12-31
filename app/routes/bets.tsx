@@ -23,9 +23,6 @@ function bets() {
     {
       fetchData();
     }
-
-    
-    
   }, []);
 
   async function storeNameInLocalStorage(value)
@@ -43,17 +40,18 @@ function bets() {
       <h1>Mine bets</h1>
       <div className=''>
         <input
-          type="text" 
+          
+          type="text"
+          placeholder='Indtats navn og tryk indsend' 
           onChange={(e) => {
             const value = e.target.value;
             setNameValue(value);
           }}
-          className="flex-1 p-2 w-72 h-11 rounded bg-neutral-800 text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="flex-1 pl-2 w-72 h-11 rounded bg-neutral-800 text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
         />
-        <button onClick={() => storeNameInLocalStorage(nameValue)} className=' px-4 text-2xl cursor-pointer'>Indsend</button>
+        <button onClick={() => storeNameInLocalStorage(nameValue)} className=' text-green-400 border-green-300 border rounded-xl h-11 ml-4  px-12 text-2xl cursor-pointer'>Indsend</button>
         <div className='  flex flex-col items-center'>
 
-         
          <div className="grid grid-cols-1  md:grid-cols-3 pt-5 gap-3 ">
                   {[...data]
                     .map((item, index) => (
@@ -64,7 +62,6 @@ function bets() {
                         pengePåBet={`${item.penge_på_bet} Kr.`}
                         muligGevinst={`${item.penge_på_bet * item.værdi} Kr.`}
                         shouldLoad = {true}
-                        
                       />
                     ))}
                 </div>
