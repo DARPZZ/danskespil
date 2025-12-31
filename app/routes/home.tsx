@@ -30,9 +30,7 @@ function Home() {
       <div className="block lg:hidden mt-6">
         <MultiplierCard oddsNumber={Number(selectedValue)} />
       </div>
-
       <div className="flex flex-col lg:flex-row pt-5 gap-6">
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 ">
           {[...data]
             .sort((a, b) => Number(a.value) - Number(b.value))
@@ -49,7 +47,6 @@ function Home() {
         <div className="hidden lg:block lg:w-64 lg:sticky lg:top-24 ">
           <MultiplierCard oddsNumber={Number(selectedValue)} />
         </div>
-
       </div>
     </div>
   );

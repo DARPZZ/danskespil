@@ -1,34 +1,74 @@
+// Card.tsx
+import React from "react";
+import FireworkIcon from "./FireworkIcon";
 type CardType = {
   title: string;
   value: string;
-  onClick?: (value: string) => void; 
-  pengePåBet? :string
+  subtitle?: string;
+  pengePåBet?: string;
+  icon?: React.ReactNode;
+  onClick?: (value: string) => void;
+  className?: string;
+  muligGevinst?: string;
 };
 
-export default function Card({ title, value, onClick,pengePåBet }: CardType) {
+
+export default function Card({
+  title,
+  value,
+  subtitle,
+  pengePåBet,
+  icon,
+  onClick,
+  className = "",
+  muligGevinst,
+}: CardType) {
   return (
-    <div
-      className="
-        flex
-        rounded-xl
-        p-2 w-56
-        bg-neutral-900
-        border border-neutral-800
-        shadow-lg
-        hover:shadow-[0_0_20px_rgba(139,92,246,0.7),0_0_30px_rgba(139,92,246,0.5)]
-        transform hover:-translate-y-2 hover:scale-105
-        transition-all duration-300
-        cursor-pointer
-        overflow-hidden
-      "
-      onClick={() => onClick && onClick(value)} 
+    <button
+      type="button"
+      onClick={() => onClick && onClick(value)}
+      className={
+        `group relative flex flex-col items-start gap-3 w-64 p-4 rounded-2xl
+         bg-linear-to-br from-neutral-900 via-neutral-950 to-neutral-900
+         border border-neutral-800 shadow-[0_6px_30px_rgba(0,0,0,0.6)]
+         hover:shadow-[0_0_30px_rgba(99,102,241,0.18),0_8px_40px_rgba(139,92,246,0.12)]
+         transform transition-all duration-300
+         focus:outline-none focus:ring-4 focus:ring-purple-600/20
+         ${className}`
+      }
+      aria-label={title}
     >
-      <div className="relative z-10 flex flex-col h-full">
-        <h2 className="text-base font-medium text-neutral-300">{title}</h2>
-        <p className="mt-2 text-3xl font-extrabold text-white tracking-tight">{value}</p>
-        <p className="mt-2 text-3xl font-extrabold text-white tracking-tight">{pengePåBet}</p>
-        <div className="mt-4 h-1 w-16 bg-red-300 rounded-full shadow-[0_0_8px_rgba(139,92,246,0.7)] animate-pulse"></div>
+      <div className="flex items-center w-full">
+        <div
+          className="flex items-center justify-center h-12 w-12 rounded-xl bg-linear-to-tr
+                     from-purple-700 to-indigo-600 text-white shadow-md"
+        >
+          {icon ?? (
+            <FireworkIcon width={26} height={26} animate={true}accentColor="#34D399" />
+          )}
+        </div>
+
+        <div className="ml-3 flex-1 text-left">
+          <h3 className="text-sm font-semibold text-neutral-200">{title}</h3>
+          {subtitle && <p className="mt-1 text-xs text-neutral-400">{subtitle}</p>}
+        </div>
+
+        <div className="ml-3 text-right">
+          <p className="text-lg font-extrabold text-white">{value}</p>
+          {pengePåBet && <p className="text-xs text-rose-300 mt-1">{pengePåBet}</p>}
+        </div>
       </div>
-    </div>
+
+      <div className="flex w-full flex-row text-left text-lg">
+        <p className="flex-1">Mulig gevinst</p>
+        <p className="text-green-400">{muligGevinst}</p>
+      </div>
+
+      <div className="mt-3 w-full">
+        <div className="h-2 w-full bg-neutral-800 rounded-full overflow-hidden">
+          <div className="h-full w-1/3 bg-linear-to-r from-purple-500 to-indigo-400 group-hover:animate-pulse transition-all duration-500" />
+        </div>
+      </div>
+    </button>
   );
 }
