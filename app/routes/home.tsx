@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Card from '~/modules/Card';
 import { GetData } from '~/modules/ScrapeDanskeSpil';
 import MultiplierCard from '~/modules/calc';
-
+import { useNavigate } from "react-router";
 function Home() {
   const [data, setData] = useState([]);
   const [selectedValue, setSelectedValue] = useState<string>("");
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       const result = await GetData();
@@ -21,6 +21,12 @@ function Home() {
       <h1 className="pt-4 lg:text-6xl font-bold flex justify-center text-center">
         Velkommen til kongens nytårs tale 2025 
       </h1>
+      <div className='flex flex-col w-full items-center justify-center pt-5'>
+        <button 
+          onClick={() => navigate("/bets")}
+          className=' bg-linear-to-r from-green-400 to-blue-500 border-2 opacity-75  border-amber-300 font-bold cursor-crosshair text-5xl rounded-3xl w-1/2 h-20 '>Se mine bets</button>
+      </div>
+      
       <div className="block lg:hidden mt-6">
         <MultiplierCard oddsNumber={Number(selectedValue)} />
       </div>

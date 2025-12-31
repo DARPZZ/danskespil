@@ -2,9 +2,10 @@ type CardType = {
   title: string;
   value: string;
   onClick?: (value: string) => void; 
+  pengePåBet? :string
 };
 
-export default function Card({ title, value, onClick }: CardType) {
+export default function Card({ title, value, onClick,pengePåBet }: CardType) {
   return (
     <div
       className="
@@ -25,6 +26,7 @@ export default function Card({ title, value, onClick }: CardType) {
       <div className="relative z-10 flex flex-col h-full">
         <h2 className="text-base font-medium text-neutral-300">{title}</h2>
         <p className="mt-2 text-3xl font-extrabold text-white tracking-tight">{value}</p>
+        <p className="mt-2 text-3xl font-extrabold text-white tracking-tight">{pengePåBet}</p>
         <div className="mt-4 h-1 w-16 bg-red-300 rounded-full shadow-[0_0_8px_rgba(139,92,246,0.7)] animate-pulse"></div>
       </div>
     </div>
