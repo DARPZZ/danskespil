@@ -24,7 +24,7 @@ function Home() {
       <div className='flex flex-col w-full items-center justify-center pt-5'>
         <button 
           onClick={() => navigate("/bets")}
-          className=' bg-linear-to-r from-green-400 to-blue-500 border-2 opacity-75  border-amber-300 font-bold cursor-crosshair text-5xl rounded-3xl w-1/2 h-20 '>Se mine bets</button>
+          className=' bg-linear-to-r from-green-400 to-blue-500 border-2 opacity-75  border-amber-300 font-bold cursor-crosshair text-2xl md:text-5xl rounded-3xl w-1/2 h-20 '>Se mine bets</button>
       </div>
       
       <div className="block lg:hidden mt-6">

@@ -10,6 +10,7 @@ type CardType = {
   onClick?: (value: string) => void;
   className?: string;
   muligGevinst?: string;
+  shouldLoad?:boolean
 };
 
 
@@ -22,6 +23,7 @@ export default function Card({
   onClick,
   className = "",
   muligGevinst,
+  shouldLoad =false
 }: CardType) {
   return (
     <button
@@ -43,10 +45,12 @@ export default function Card({
           className="flex items-center justify-center h-12 w-12 rounded-xl bg-linear-to-tr
                      from-purple-700 to-indigo-600 text-white shadow-md"
         >
-          {icon ?? (
-            <FireworkIcon width={26} height={26} animate={true}accentColor="#34D399" />
-          )}
+        {shouldLoad &&(
+          <FireworkIcon width={26} height={26} animate={true}accentColor="#34D399" />
+
+        )}
         </div>
+        
 
         <div className="ml-3 flex-1 text-left">
           <h3 className="text-sm font-semibold text-neutral-200">{title}</h3>

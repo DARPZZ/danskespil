@@ -9,6 +9,7 @@ type Props = {
   accentColor?: string;
   animate?: boolean;
   idSuffix?: string;
+  
 };
 
 export default function FireworkIcon({
@@ -19,6 +20,7 @@ export default function FireworkIcon({
   accentColor = "#F472B6",
   animate = true,
   idSuffix = "",
+  
 }: Props) {
   const uid = idSuffix || String(Math.random()).slice(2, 8);
 

@@ -63,6 +63,7 @@ function bets() {
                         value={item.værdi}
                         pengePåBet={`${item.penge_på_bet} Kr.`}
                         muligGevinst={`${item.penge_på_bet * item.værdi} Kr.`}
+                        shouldLoad = {true}
                         
                       />
                     ))}
