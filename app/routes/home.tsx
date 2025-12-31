@@ -31,7 +31,7 @@ function Home() {
         <MultiplierCard oddsNumber={Number(selectedValue)} />
       </div>
       <div className="flex flex-col lg:flex-row pt-5 gap-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-9 ">
           {[...data]
             .sort((a, b) => Number(a.value) - Number(b.value))
             .map((item, index) => (
